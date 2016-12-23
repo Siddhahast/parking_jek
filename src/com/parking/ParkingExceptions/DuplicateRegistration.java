@@ -6,7 +6,7 @@ package com.parking.ParkingExceptions;
 public class DuplicateRegistration extends Exception {
 
     private String error_message;
-    private int error_code ;
+    private int error_code = ExceptionCodeConstants.DUPLICATE_REGISTRATION_CODE;
 
     public DuplicateRegistration(String message){
         this.error_message = message;

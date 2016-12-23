@@ -26,7 +26,6 @@ public class ParkingLotManager implements ParkingManager{
         this.colorMap = new HashMap<String, List<ParkingSlot>>();
         this.itemSlotMap = new HashMap<Integer, ParkingSlot>();
         this.keySlotMap = new HashMap<String, ParkingSlot>();//registration- slot map
-        System.out.println("Created parking lot with "+ capacity_managed+ " slots.");
     }
 
     public int parkItem(Item item) throws Exception {
@@ -122,6 +121,7 @@ public class ParkingLotManager implements ParkingManager{
         List<String> list = null;
         List<Integer> slotsList = null;
         if(colorMap.get(color)!=null){
+            list = new ArrayList<String>();
             slotsList = new ArrayList<Integer>();
             List<ParkingSlot> slots = colorMap.get(color);
             for(ParkingSlot slot:slots){

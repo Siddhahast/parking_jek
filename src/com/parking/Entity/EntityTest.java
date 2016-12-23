@@ -6,11 +6,9 @@ package com.parking.Entity;
 public class EntityTest {
 
     public static void main(String[] args) {
-        ParkingLot lot1 = ParkingLot.createParkingLot(6);
-        ParkingLot lot2 = ParkingLot.createParkingLot(6);
-        System.out.println(lot1.hashCode());
-        System.out.println(lot2.hashCode());
-        ParkingLot lot3 = ParkingLot.createParkingLot(6);
-        System.out.println(lot3.hashCode());
+//        String arg = args[0];
+//        String arg2 =  args[1];
+//        System.out.println(arg + "  "+arg2);
+        System.out.print("Hello World");
     }
 }

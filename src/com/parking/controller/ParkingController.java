@@ -20,23 +20,23 @@ public class ParkingController {
         this.parkingManager = new ParkingLotManager(capacity);
     }
 
-    public void parkItem(String registrationNumber, String color){
+    public String parkItem(String registrationNumber, String color){
         Item item = new Car(registrationNumber, color);
         int slot_number = -1;
         try {
             slot_number = parkingManager.parkItem(item);
-            System.out.println("Allocated slot number: "+ slot_number) ;
+            return "Allocated slot number: "+ slot_number ;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            return e.getMessage();
         }
     }
 
-    public void leaveSlot(int slot){
+    public String leaveSlot(int slot){
         try{
             parkingManager.checkoutVehicleFromLot(slot);
-            System.out.println("Slot number "+slot+" is free");
+            return "Slot number "+slot+" is free";
         } catch(Exception e){
-            System.out.println(e.getMessage());
+            return e.getMessage();
         }
     }
 
@@ -60,12 +60,11 @@ public class ParkingController {
         }
     }
 
-    public void getSlotNumberForRegistrationNumber(String registrationNumber){
-        int slot = -1;
+    public String getSlotNumberForRegistrationNumber(String registrationNumber){
         try {
-            slot = parkingManager.getSlotNumberForRegistrationNumber(registrationNumber);
+            return String.valueOf(parkingManager.getSlotNumberForRegistrationNumber(registrationNumber));
         } catch (Exception e) {
-            e.getMessage();
+            return e.getMessage();
         }
     }
 

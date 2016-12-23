@@ -1,8 +1,6 @@
 package com.parking.Entity;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by siddhahastmohapatra on 22/12/16.
@@ -17,7 +15,7 @@ public class ParkingLot {
 
     private ParkingLot(int num){
         this.capacity = num;
-        unparkedSlots = new LinkedList<ParkingSlot>();
+        unparkedSlots = new PriorityQueue<ParkingSlot>();
         parkedSlots = new LinkedList<ParkingSlot>();
         this.slots = new ParkingSlot[num];
         for(int i=0;i<num;i++){

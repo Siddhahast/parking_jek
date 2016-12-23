@@ -13,8 +13,8 @@ public class ExceptionCodeConstants {
 
     public static final String COLORED_ITEM_UNAVAILABLE_MESSAGE = "No cars";
     public static final String PARKING_LOT_FULL_MESSAGE = "Sorry! Parking Lot is full";
-    public static final String PARKING_SLOT_IS_EMPTY_MESSAGE = "";
-    public static final String DUPLICATE_REGISTRATION_MESSAGE = "";
-    public static final String ITEM_UNAVAILABLE_MESSAGE = "This vehicle is not parked in the parking lot";
+    public static final String PARKING_SLOT_IS_EMPTY_MESSAGE = "Slot is already empty";
+    public static final String DUPLICATE_REGISTRATION_MESSAGE = "Duplicate Registration Numbers";
+    public static final String ITEM_UNAVAILABLE_MESSAGE = "Not found";
 
 }

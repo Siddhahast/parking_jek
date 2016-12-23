@@ -51,7 +51,9 @@ public class Slot implements Comparable<Slot>, ParkingSlot {
     public int compareTo(Slot o) {
         if(this.slot_number==o.slot_number){
             return 0;
-        }else{
+        }else if(this.slot_number>o.slot_number){
+            return 1;
+        } else{
             return -1;
         }
     }

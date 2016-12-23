@@ -10,16 +10,11 @@ import com.parking.controller.ParkingController;
 /**
  * Created by siddhahastmohapatra on 23/12/16.
  */
-public class CommandBuilder {
+public abstract class CommandBuilder {
 
-    private static final CommandBuilder instance = new CommandBuilder();
-    private static ParkingController parkingController ;
+    private ParkingController parkingController ;
 
-    public static CommandBuilder getInstance(){
-        return instance;
-    }
-
-    public static Command build(List<String> args){
+    public Command build(List<String> args){
         String co = args.get(0);
         List<String> parameters = new ArrayList<String>();
         for(int i=1;i<args.size();i++){
@@ -33,27 +28,7 @@ public class CommandBuilder {
         return command;
     }
 
-    public static void commandsController(Command command){
-        String command_name = command.getCommand();
-        String[] parameters = command.getParamenters();
-        switch (command_name){
-            case CommandConstants.CREATE_PARKING_LOT:
-                parkingController = new ParkingController(Integer.parseInt(parameters[0]));
-                break;
+    public abstract void commandsController(Command build);
 
-            case CommandConstants.PARK:
-                parkingController.parkItem(parameters[0], parameters[1]);
-                break;
-
-            case CommandConstants.LEAVE:
-                parkingController.leaveSlot(Integer.parseInt(parameters[0]));
-                break;
-
-            case CommandConstants.STATUS:
-                System.out.println(parkingController.getStatus());
-                break;
-        }
-
-    }
-
+    public abstract void closeWriter();
 }
