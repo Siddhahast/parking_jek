@@ -12,4 +12,6 @@ public interface ParkingSlot {
     public boolean isAvailable();
 
     public void setItem(Item item);
+
+    public void setAvailable(boolean available);
 }

@@ -24,8 +24,7 @@ public class ParkingController {
         Item item = new Car(registrationNumber, color);
         int slot_number = -1;
         try {
-            slot_number = parkingManager.parkItem(item);
-            return "Allocated slot number: "+ slot_number ;
+            return  parkingManager.parkItem(item);
         } catch (Exception e) {
             return e.getMessage();
         }

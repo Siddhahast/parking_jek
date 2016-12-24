@@ -14,6 +14,10 @@ public abstract class CommandBuilder {
 
     private ParkingController parkingController ;
 
+    public abstract void commandsController(Command build);
+
+    public abstract void closeWriter();
+
     public Command build(List<String> args){
         String co = args.get(0);
         List<String> parameters = new ArrayList<String>();
@@ -28,7 +32,4 @@ public abstract class CommandBuilder {
         return command;
     }
 
-    public abstract void commandsController(Command build);
-
-    public abstract void closeWriter();
 }

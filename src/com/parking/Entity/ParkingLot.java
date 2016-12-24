@@ -14,14 +14,18 @@ public class ParkingLot {
     private List<ParkingSlot> parkedSlots;
 
     private ParkingLot(int num){
-        this.capacity = num;
+        this.capacity = num+1;
         unparkedSlots = new PriorityQueue<ParkingSlot>();
         parkedSlots = new LinkedList<ParkingSlot>();
-        this.slots = new ParkingSlot[num];
-        for(int i=0;i<num;i++){
-            slots[i] = new Slot(i+1);
+        this.slots = new ParkingSlot[capacity];
+        for(int i=1;i<capacity;i++){
+            slots[i] = new Slot(i);
             unparkedSlots.add(slots[i]);
         }
+    }
+
+    public ParkingSlot[] getParkingSlots(){
+        return slots;
     }
 
     public static ParkingLot createParkingLot(int capacity){
@@ -32,6 +36,17 @@ public class ParkingLot {
             return INSTANCE;
         }
     }
+
+    public void setSlotAsParked(int slot_number, ParkingSlot slot){
+        slots[slot_number] = slot;
+    }
+
+    public void setSlotAsUnparked(int slot_number, ParkingSlot slot){
+        slots[slot_number] = slot;
+    }
+
+    public static ParkingLot getInstance(){return INSTANCE;}
+
 
     public boolean getSlotStatus(int slot_number){
         return slots[slot_number].isAvailable();
@@ -78,5 +93,9 @@ public class ParkingLot {
     public List<ParkingSlot> getParkedSlots(){
         return parkedSlots;
     }
+
+    public Queue<ParkingSlot> getUnparkedSlots(){return unparkedSlots;}
+
+    public int getCapacity(){return capacity;}
 
 }

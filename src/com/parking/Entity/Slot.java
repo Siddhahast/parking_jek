@@ -18,6 +18,10 @@ public class Slot implements Comparable<Slot>, ParkingSlot {
         return isAvailable;
     }
 
+    public void setAvailable(boolean available){
+        this.isAvailable = available;
+    }
+
     public void setItem(Item item){
         this.isAvailable = false;
         this.item = item;
