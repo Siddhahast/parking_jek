@@ -43,6 +43,11 @@ public class ReportsImpl implements Reports {
     }
 
     public void addItem(Item item, ParkingSlot slot) throws DuplicateRegistration {
+        if(keySlotMap.get(item.getKey())==null){
+            keySlotMap.put(item.getKey(), slot.getSlot_number());
+        } else{
+            throw new DuplicateRegistration(ExceptionCodeConstants.DUPLICATE_REGISTRATION_MESSAGE);
+        }
         if(colorMap.get(item.getColor())==null){
             List<Integer> list = new LinkedList<Integer>();
             list.add(slot.getSlot_number());
@@ -51,11 +56,7 @@ public class ReportsImpl implements Reports {
             colorMap.get(item.getColor()).add(slot.getSlot_number());
         }
         itemSlotMap.put(slot.getSlot_number(), slot);
-        if(keySlotMap.get(item.getKey())==null){
-            keySlotMap.put(item.getKey(), slot.getSlot_number());
-        } else{
-            throw new DuplicateRegistration(ExceptionCodeConstants.DUPLICATE_REGISTRATION_MESSAGE);
-        }
+
     }
 
     public void removeItem(Item item, int slot_number) throws SlotEmptyException {

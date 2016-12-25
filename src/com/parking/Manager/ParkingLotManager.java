@@ -44,9 +44,12 @@ public class ParkingLotManager implements ParkingManager{
         ParkingSlot slot = null;
         try{
             slot = parkingSlotFinder.findFreeParkingSlot();
-            valet.parkItemInSlot(item, slot);
             reportKeeper.addItem(item, slot);
-        } catch(Exception ex){
+            valet.parkItemInSlot(item, slot);
+        } catch(DuplicateRegistration ex){
+            parkingSlotFinder.addFreeSlot(slot);
+            return ex.getMessage();
+        } catch (Exception ex){
             return ex.getMessage();
         }
         return "Alloted Slot Number: "+slot.getSlot_number();
